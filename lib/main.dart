@@ -16,9 +16,6 @@ Widget _widgetForRoute(String route) {
   switch (route) {
     case '/page_1':
     case '/page_2':
-
-
-
       return Page(route);
     default:
       return ErrorPage(route);
@@ -52,7 +49,7 @@ class Page extends StatelessWidget {
             title: Text('$route'),
           ),
           body: Center(
-            child: Text('$route'),
+            child: Text('$route 修改提交'),
           ),
         ));
   }
