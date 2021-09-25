@@ -18,7 +18,7 @@ Widget _widgetForRoute(String route) {
     case '/page_2':
 
 
-      
+
       return Page(route);
     default:
       return ErrorPage(route);
