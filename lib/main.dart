@@ -49,7 +49,7 @@ class Page extends StatelessWidget {
             title: Text('$route'),
           ),
           body: Center(
-            child: Text('$route 修改提交'),
+            child: Text('$route 修改提交2'),
           ),
         ));
   }
