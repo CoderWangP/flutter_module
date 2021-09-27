@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp1());
 
@@ -29,6 +30,9 @@ class Page extends StatelessWidget {
     this.route = route;
   }
 
+  static const toAndroidChannel =
+      const MethodChannel('com.example.flutterandroiddemo/channel');
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,9 +53,20 @@ class Page extends StatelessWidget {
             title: Text('$route'),
           ),
           body: Center(
-            child: Text('$route 修改提交7'),
+            child: TextButton(
+              child: Text('$route 点击跳转Android native 页面'),
+              onPressed: () {
+                _forward2Native();
+              },
+            ),
           ),
         ));
+  }
+
+  Future<Null> _forward2Native() async {
+    String message = "这是一条来自flutter的消息";
+    String result = await toAndroidChannel.invokeMethod('forward2Native', message);
+    print(result);
   }
 }
 
